@@ -1,0 +1,13 @@
+SET IDENTITY_INSERT [bpu_phase_stat] ON;
+INSERT INTO [bpu_phase_stat] ([id],[bpu_phase_stat_n],[bpu_phase_stat_n_desc],[machine_type]) VALUES (1,0,'设备其他运转','UHT');
+INSERT INTO [bpu_phase_stat] ([id],[bpu_phase_stat_n],[bpu_phase_stat_n_desc],[machine_type]) VALUES (2,1,'升温','UHT');
+INSERT INTO [bpu_phase_stat] ([id],[bpu_phase_stat_n],[bpu_phase_stat_n_desc],[machine_type]) VALUES (3,2,'无菌水循环','UHT');
+INSERT INTO [bpu_phase_stat] ([id],[bpu_phase_stat_n],[bpu_phase_stat_n_desc],[machine_type]) VALUES (4,4,'休眠','UHT');
+INSERT INTO [bpu_phase_stat] ([id],[bpu_phase_stat_n],[bpu_phase_stat_n_desc],[machine_type]) VALUES (5,8,'生产','UHT');
+INSERT INTO [bpu_phase_stat] ([id],[bpu_phase_stat_n],[bpu_phase_stat_n_desc],[machine_type]) VALUES (6,16,'排空','UHT');
+INSERT INTO [bpu_phase_stat] ([id],[bpu_phase_stat_n],[bpu_phase_stat_n_desc],[machine_type]) VALUES (7,32,'AIC','UHT');
+INSERT INTO [bpu_phase_stat] ([id],[bpu_phase_stat_n],[bpu_phase_stat_n_desc],[machine_type]) VALUES (8,128,'CIP','UHT');
+INSERT INTO [bpu_phase_stat] ([id],[bpu_phase_stat_n],[bpu_phase_stat_n_desc],[machine_type]) VALUES (9,2048,'水冲停机','UHT');
+INSERT INTO [bpu_phase_stat] ([id],[bpu_phase_stat_n],[bpu_phase_stat_n_desc],[machine_type]) VALUES (10,1,'生产','ALSAFE');
+INSERT INTO [bpu_phase_stat] ([id],[bpu_phase_stat_n],[bpu_phase_stat_n_desc],[machine_type]) VALUES (11,2,'设备其他运转','ALSAFE');
+SET IDENTITY_INSERT [bpu_phase_stat] OFF;

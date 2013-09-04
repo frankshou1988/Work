@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+  "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="cipPhaseName">
+		<field-validator type="requiredstring">
+			<message key="error.cip.phase.name.required" />
+		</field-validator>
+	</field>
+
+	<field name="cipPhaseID">
+		<field-validator type="required">
+			<message key="error.cip.phase.id.required" />
+		</field-validator>
+		<field-validator type="long">
+			<param name="min">1</param>
+			<param name="max">4294967295</param>
+			<message key="error.cip.phase.id.between" />
+		</field-validator>
+	</field>
+
+	<field name="cipPhaseSlaveLineId">
+		<field-validator type="required">
+			<message key="error.cip.phase.slave.line.id.required" />
+		</field-validator>
+		<field-validator type="int">
+			<message key="error.cip.phase.slave.line.id.required" />
+		</field-validator>
+	</field>
+
+	<field name="cipPhaseTargetId">
+		<field-validator type="required">
+			<message key="error.cip.phase.cip.phase.target.id.required" />
+		</field-validator>
+		<field-validator type="int">
+			<message key="error.cip.phase.cip.phase.target.id.required" />
+		</field-validator>
+	</field>
+</validators>

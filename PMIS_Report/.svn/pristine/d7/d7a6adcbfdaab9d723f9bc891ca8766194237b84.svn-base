@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="system_settings_bpu_setting_page_package"
+		extends="struts-default" namespace="/systemSettings/bpu">
+		<interceptors>
+			<interceptor name="authority"
+				class="com.tetrapak.intercepter.authz.RootIntercepter"></interceptor>
+			<interceptor-stack name="rootAuth">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="authority"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">loginPage</param>
+				<param name="namespace">/authz</param>
+			</result>
+			<result name="exception">/WEB-INF/pages/exception.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+
+		<action name="bpuSettingPage"
+			class="com.tetrapak.action.systemsettings.bpu.BPUSettingPageAction"
+			method="bpuSettingPage">
+			<result name="success">/WEB-INF/pages/systemsettings/bpu/bpu_setting_page.jsp
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="bpuMachineSettingPage"
+			class="com.tetrapak.action.systemsettings.bpu.BPUSettingPageAction"
+			method="bpuMachineSettingPage">
+			<result name="success">/WEB-INF/pages/systemsettings/bpu/bpu_machine_setting_page.jsp
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="bpuAnalogTagSettingPage"
+			class="com.tetrapak.action.systemsettings.bpu.BPUSettingPageAction"
+			method="bpuAnalogTagSettingPage">
+			<result name="success">/WEB-INF/pages/systemsettings/bpu/bpu_analog_tag_setting_page.jsp
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="bpuAlarmTagSettingPage"
+			class="com.tetrapak.action.systemsettings.bpu.BPUSettingPageAction"
+			method="bpuAlarmTagSettingPage">
+			<result name="success">/WEB-INF/pages/systemsettings/bpu/bpu_alarm_tag_setting_page.jsp
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="bpuAlarmMsgSettingPage"
+			class="com.tetrapak.action.systemsettings.bpu.BPUSettingPageAction"
+			method="bpuAlarmMsgSettingPage">
+			<result name="success">/WEB-INF/pages/systemsettings/bpu/bpu_alarm_msg_setting_page.jsp
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+	</package>
+	<package name="system_settings_bpu_machine_setting_package"
+		extends="struts-default" namespace="/systemSettings/bpu/bpuMachine">
+		<interceptors>
+			<interceptor name="authority"
+				class="com.tetrapak.intercepter.authz.RootIntercepter"></interceptor>
+			<interceptor-stack name="rootAuth">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="authority"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">loginPage</param>
+				<param name="namespace">/authz</param>
+			</result>
+			<result name="exception">/WEB-INF/pages/exception.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+
+		<action name="add"
+			class="com.tetrapak.action.systemsettings.bpu.BPUMachineSettingAction"
+			method="add">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_machine_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuMachineSettingPage</param>
+				<param name="namespace">/systemSettings/bpu/</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="edit"
+			class="com.tetrapak.action.systemsettings.bpu.BPUMachineSettingAction"
+			method="edit">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_machine_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuMachineSettingPage</param>
+				<param name="namespace">/systemSettings/bpu/</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="delete"
+			class="com.tetrapak.action.systemsettings.bpu.BPUMachineSettingAction"
+			method="delete">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_machine_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuMachineSettingPage</param>
+				<param name="namespace">/systemSettings/bpu/</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="saveBPUMachineTag"
+			class="com.tetrapak.action.systemsettings.bpu.BPUMachineSettingAction"
+			method="saveBPUMachineTag">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_machine_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuMachineSettingPage</param>
+				<param name="namespace">/systemSettings/bpu/</param>
+				<param name="bpuMachineId">${bpuMachineId}</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+	</package>
+
+	<package name="system_settings_bpu_analog_tag_setting_package"
+		extends="struts-default" namespace="/systemSettings/bpu/analogTag">
+		<interceptors>
+			<interceptor name="authority"
+				class="com.tetrapak.intercepter.authz.RootIntercepter"></interceptor>
+			<interceptor-stack name="rootAuth">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="authority"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">loginPage</param>
+				<param name="namespace">/authz</param>
+			</result>
+			<result name="exception">/WEB-INF/pages/exception.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+
+		<action name="add"
+			class="com.tetrapak.action.systemsettings.bpu.BPUAnalogTagSettingAction"
+			method="add">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_analog_tag_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuAnalogTagSettingPage</param>
+				<param name="namespace">/systemSettings/bpu/</param>
+				<param name="bpuMachineId">${bpuMachineId}</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="edit"
+			class="com.tetrapak.action.systemsettings.bpu.BPUAnalogTagSettingAction"
+			method="edit">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_analog_tag_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuAnalogTagSettingPage</param>
+				<param name="namespace">/systemSettings/bpu/</param>
+				<param name="bpuMachineId">${bpuMachineId}</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="delete"
+			class="com.tetrapak.action.systemsettings.bpu.BPUAnalogTagSettingAction"
+			method="delete">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_analog_tag_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuAnalogTagSettingPage</param>
+				<param name="namespace">/systemSettings/bpu/</param>
+				<param name="bpuMachineId">${bpuMachineId}</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+	</package>
+	<package name="system_settings_bpu_alarm_tag_setting_package"
+		extends="struts-default" namespace="/systemSettings/bpu/alarmTag">
+		<interceptors>
+			<interceptor name="authority"
+				class="com.tetrapak.intercepter.authz.RootIntercepter"></interceptor>
+			<interceptor-stack name="rootAuth">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="authority"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">loginPage</param>
+				<param name="namespace">/authz</param>
+			</result>
+			<result name="exception">/WEB-INF/pages/exception.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+
+		<action name="add"
+			class="com.tetrapak.action.systemsettings.bpu.BPUAlarmTagSettingAction"
+			method="add">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_alarm_tag_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuAlarmTagSettingPage</param>
+				<param name="namespace">/systemSettings/bpu/</param>
+				<param name="bpuMachineId">${bpuMachineId}</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="edit"
+			class="com.tetrapak.action.systemsettings.bpu.BPUAlarmTagSettingAction"
+			method="edit">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_alarm_tag_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuAlarmTagSettingPage</param>
+				<param name="namespace">/systemSettings/bpu/</param>
+				<param name="bpuMachineId">${bpuMachineId}</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="delete"
+			class="com.tetrapak.action.systemsettings.bpu.BPUAlarmTagSettingAction"
+			method="delete">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_alarm_tag_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuAlarmTagSettingPage</param>
+				<param name="namespace">/systemSettings/bpu/</param>
+				<param name="bpuMachineId">${bpuMachineId}</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+	</package>
+	<package name="system_settings_bpu_alarm_msg_setting_package"
+		extends="struts-default" namespace="/systemSettings/bpu/alarmMsg">
+		<interceptors>
+			<interceptor name="authority"
+				class="com.tetrapak.intercepter.authz.RootIntercepter"></interceptor>
+			<interceptor-stack name="rootAuth">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="authority"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">loginPage</param>
+				<param name="namespace">/authz</param>
+			</result>
+			<result name="exception">/WEB-INF/pages/exception.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+
+		<action name="add"
+			class="com.tetrapak.action.systemsettings.bpu.BPUAlarmMsgSettingAction"
+			method="add">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_alarm_msg_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuAlarmMsgSettingPage</param>
+				<param name="namespace">/systemSettings/bpu</param>
+				<param name="bpuMachineId">${bpuMachineId}</param>
+				<param name="alarmTagId">${alarmTagId}</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="edit"
+			class="com.tetrapak.action.systemsettings.bpu.BPUAlarmMsgSettingAction"
+			method="edit">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_alarm_msg_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuAlarmMsgSettingPage</param>
+				<param name="namespace">/systemSettings/bpu</param>
+				<param name="bpuMachineId">${bpuMachineId}</param>
+				<param name="alarmTagId">${alarmTagId}</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+
+		<action name="delete"
+			class="com.tetrapak.action.systemsettings.bpu.BPUAlarmMsgSettingAction"
+			method="delete">
+			<result name="input">/WEB-INF/pages/systemsettings/bpu/bpu_alarm_msg_setting_page.jsp
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">bpuAlarmMsgSettingPage</param>
+				<param name="namespace">/systemSettings/bpu</param>
+				<param name="bpuMachineId">${bpuMachineId}</param>
+				<param name="alarmTagId">${alarmTagId}</param>
+			</result>
+			<interceptor-ref name="rootAuth"></interceptor-ref>
+		</action>
+	</package>
+
+</struts>

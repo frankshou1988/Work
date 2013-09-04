@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is the configuration file of our PMIS System -->
+<PMISConfig>
+	<AppName>Tetra Pak Production Management Information System</AppName>
+	<AppVersion>
+		<MainVersion>1</MainVersion>
+		<SubVersion>0</SubVersion>
+	</AppVersion>
+	<InSQL>
+		<DBConfig>
+			<Url>jdbc:sqlserver://localhost:1433;DatabaseName=Runtime</Url>
+			<Username>sa</Username>
+			<Password>sa</Password>
+		</DBConfig>
+		<TagValue>
+			<TagMinValue>0</TagMinValue>
+			<AvoidTagValueNullCount>20</AvoidTagValueNullCount>
+			<TagValueIntervalMillis>2000</TagValueIntervalMillis>
+		</TagValue>
+		<DaserverUpdateInterval>2</DaserverUpdateInterval>
+	</InSQL>
+
+	<CIPReport>
+		<CIPReportPageCount>20</CIPReportPageCount>
+	</CIPReport>
+	<BPUReport>
+		<BPUReportPageCount>20</BPUReportPageCount>
+		<BPUAlarmReportPageCount>20</BPUAlarmReportPageCount>
+	</BPUReport>
+</PMISConfig>

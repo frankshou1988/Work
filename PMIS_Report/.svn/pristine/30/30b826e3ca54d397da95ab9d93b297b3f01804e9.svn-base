@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+  "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="alarmMsgId">
+		<field-validator type="required">
+			<message key="i18n.pkg.error.alarm.msg.id.required" />
+		</field-validator>
+	</field>
+	<field name="bpuMachineId">
+		<field-validator type="required">
+			<message key="i18n.pkg.error.bpu.machine.id.required" />
+		</field-validator>
+	</field>
+	<field name="alarmTagId">
+		<field-validator type="required">
+			<message key="i18n.pkg.error.alarm.tag.id.required" />
+		</field-validator>
+	</field>
+	<field name="alarmMsgBit">
+		<field-validator type="required">
+			<message key="i18n.pkg.error.alarm.msg.bit.required" />
+		</field-validator>
+	</field>
+	<field name="alarmMsgInfo">
+		<field-validator type="requiredstring">
+			<message key="i18n.pkg.error.alarm.msg.info.required" />
+		</field-validator>
+	</field>
+</validators>

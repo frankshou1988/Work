@@ -1,0 +1,42 @@
+98	Tetra Pak
+10	Operator
+11	Operator1-1
+12	Operator1-2
+13	Operator1-3
+14	Operator1-4
+15	Operator1-5
+20	Supervisor
+21	Supervisor1-1
+22	Supervisor1-2
+23	Supervisor1-3
+24	Supervisor1-4
+25	Supervisor1-5
+31	Manager
+41	Maintenance
+104	Engineer
+101	Administrator
+1003	Eric
+913	Tony
+1302	KUBI
+999	oper
+0	None
+88	BatchKernel
+255	Local UI operator
+65535	Intouch Administrator
+915	HanQing
+927	Tianyj
+918	long
+8888	jin
+39	chong
+925	zjw
+368	liuxuan
+99	liang
+100	WangLei
+917	yangligang
+912	zhangj
+1002	dongmei
+911	house0902
+916	bk
+914	ljj
+1001	bisujuan
+919	wen

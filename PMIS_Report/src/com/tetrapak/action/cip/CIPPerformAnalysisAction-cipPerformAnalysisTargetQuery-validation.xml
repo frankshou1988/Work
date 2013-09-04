@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+  "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="cipTargetId">
+		<field-validator type="required">
+			<message key="report.error.cip.target.id.required" />
+		</field-validator>
+	</field>
+	<field name="queryStartDate">
+		<field-validator type="requiredstring">
+			<message key="trend.error.query.start.date.required" />
+		</field-validator>
+	</field>
+	<field name="queryEndDate">
+		<field-validator type="requiredstring">
+			<message key="trend.error.query.end.date.required" />
+		</field-validator>
+	</field>
+</validators>

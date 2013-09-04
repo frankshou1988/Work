@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="bpu_query_package" extends="struts-default"
+		namespace="/bpu/query">
+		<interceptors>
+			<interceptor name="authority"
+				class="com.tetrapak.intercepter.authz.OperatorIntercepter"></interceptor>
+			<interceptor-stack name="operatorAuth">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="authority"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">loginPage</param>
+				<param name="namespace">/authz</param>
+			</result>
+			<result name="exception">/WEB-INF/pages/exception.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+
+		<action name="bpuTrendQueryPage" class="com.tetrapak.action.bpu.BPUQueryPageAction"
+			method="bpuTrendQueryPage">
+			<result name="success">/WEB-INF/pages/bpu/report/bpu_trend_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="bpuAlarmReportQueryPage" class="com.tetrapak.action.bpu.BPUQueryPageAction"
+			method="bpuAlarmReportQueryPage">
+			<result name="success">/WEB-INF/pages/bpu/report/bpu_alarm_report_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="bpuReportQueryPage" class="com.tetrapak.action.bpu.BPUQueryPageAction">
+			<result name="success">/WEB-INF/pages/bpu/report/bpu_report_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="bpuUtilizationQueryPage" class="com.tetrapak.action.bpu.BPUQueryPageAction">
+			<result name="success">/WEB-INF/pages/bpu/report/bpu_utilization_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+
+		<action name="queryBPUTrend" class="com.tetrapak.action.bpu.BPUTrendQueryAction"
+			method="queryBPUTrend">
+			<result name="input">/WEB-INF/pages/bpu/report/bpu_trend_query_page.jsp
+			</result>
+			<result name="success">/WEB-INF/pages/bpu/report/bpu_trend_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="queryBPUAlarmReportResult"
+			class="com.tetrapak.action.bpu.BPUAlarmReportQueryAction" method="queryBPUAlarmReportResult">
+			<result name="input">/WEB-INF/pages/bpu/report/bpu_alarm_report_query_page.jsp
+			</result>
+			<result name="success">/WEB-INF/pages/bpu/report/bpu_alarm_report_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="bpuAlarmReportResultSave"
+			class="com.tetrapak.action.bpu.BPUAlarmReportQueryAction" method="bpuAlarmReportResultSave">
+			<result name="input" type="redirectAction">
+				<param name="actionName">bpuAlarmReportPage</param>
+				<param name="namespace">/bpu/query</param>
+			</result>
+			<result name="excel" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="contentDisposition">attachment;filename="${saveFileName}.xls"</param>
+				<param name="inputName">excelStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+			<result name="pdf" type="stream">
+				<param name="contentType">application/pdf; charset=UTF-8</param>
+				<param name="contentDisposition">attachment; filename="${saveFileName}.pdf"</param>
+				<param name="inputName">pdfStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="queryTrendSave" class="com.tetrapak.action.bpu.BPUTrendQueryAction"
+			method="queryTrendSave">
+			<result name="input" type="redirectAction">
+				<param name="actionName">bpuParamQueryPage</param>
+				<param name="namespace">/bpu/query</param>
+			</result>
+			<result name="excel" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="contentDisposition">attachment;filename="${saveFileName}.xls"</param>
+				<param name="inputName">excelStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+			<result name="pdf" type="stream">
+				<param name="contentType">application/pdf; charset=UTF-8</param>
+				<param name="contentDisposition">attachment; filename="${saveFileName}.pdf"</param>
+				<param name="inputName">pdfStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="queryBPUReportResult" class="com.tetrapak.action.bpu.BPUReportQueryAction"
+			method="queryBPUReportResult">
+			<result name="input">/WEB-INF/pages/bpu/report/bpu_report_query_page.jsp
+			</result>
+			<result name="success">/WEB-INF/pages/bpu/report/bpu_report_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="queryBPUReportStepResult" class="com.tetrapak.action.bpu.BPUReportQueryAction"
+			method="queryBPUReportStepResult">
+			<result name="input">/WEB-INF/pages/bpu/report/bpu_report_step_result_page.jsp
+			</result>
+			<result name="success">/WEB-INF/pages/bpu/report/bpu_report_step_result_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="bpuReportResultSave" class="com.tetrapak.action.bpu.BPUReportQueryAction"
+			method="bpuReportResultSave">
+			<result name="input" type="redirectAction">
+				<param name="actionName">bpuReportQueryPage</param>
+				<param name="namespace">/bpu/query</param>
+			</result>
+			<result name="excel" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="contentDisposition">attachment;filename="${saveFileName}.xls"</param>
+				<param name="inputName">excelStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+			<result name="pdf" type="stream">
+				<param name="contentType">application/pdf; charset=UTF-8</param>
+				<param name="contentDisposition">attachment; filename="${saveFileName}.pdf"</param>
+				<param name="inputName">pdfStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="queryBPUUtilizationReportResult" class="com.tetrapak.action.bpu.BPUUtilizationAction"
+			method="queryBPUUtilizationReportResult">
+			<result name="input">/WEB-INF/pages/bpu/report/bpu_utilization_query_page.jsp
+			</result>
+			<result name="success">/WEB-INF/pages/bpu/report/bpu_utilization_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+	</package>
+</struts>

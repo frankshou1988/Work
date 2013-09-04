@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>PMIS</display-name>
+
+	<listener>
+		<description>PMIS Configuration Loader Listener</description>
+		<display-name>pmisconfigloaderlistener</display-name>
+		<listener-class>com.tetrapak.listener.PMISConfigLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<description></description>
+		<listener-class>com.tetrapak.job.QuertzSchedulerListener</listener-class>
+	</listener>
+
+	<filter>
+		<filter-name>struts</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<welcome-file-list>
+		<welcome-file>home.action</welcome-file>
+	</welcome-file-list>
+</web-app>

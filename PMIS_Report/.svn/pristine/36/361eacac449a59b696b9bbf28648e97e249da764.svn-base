@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="cip_query_action_package" extends="struts-default"
+		namespace="/cip">
+		<interceptors>
+			<interceptor name="authority"
+				class="com.tetrapak.intercepter.authz.OperatorIntercepter"></interceptor>
+			<interceptor-stack name="operatorAuth">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="authority"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">loginPage</param>
+				<param name="namespace">/authz</param>
+			</result>
+			<result name="exception">/WEB-INF/pages/exception.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+
+		<!-- Here are the page actions -->
+		<action name="cipTrendQueryPage" class="com.tetrapak.action.cip.CIPPageAction"
+			method="cipTrendQueryPage">
+			<result name="success">/WEB-INF/pages/cip/report/cip_trend_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="cipReportQueryPage" class="com.tetrapak.action.cip.CIPPageAction"
+			method="cipReportQueryPage">
+			<result name="success">/WEB-INF/pages/cip/report/cip_report_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+
+		<action name="cipPerformAnalysisMasterLineQueryPage" class="com.tetrapak.action.cip.CIPPageAction"
+			method="cipPerformAnalysisMasterLineQueryPage">
+			<result name="success">/WEB-INF/pages/cip/report/cip_perform_analysis_masterline_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="cipPerformAnalysisTargetQueryPage" class="com.tetrapak.action.cip.CIPPageAction"
+			method="cipPerformAnalysisTargetQueryPage">
+			<result name="success">/WEB-INF/pages/cip/report/cip_perform_analysis_target_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<!-- Here are the report actions -->
+		<action name="cipReportQuery" class="com.tetrapak.action.cip.CIPReportQueryAction"
+			method="cipReportQuery">
+			<result name="input">/WEB-INF/pages/cip/report/cip_report_query_page.jsp
+			</result>
+			<result name="success">/WEB-INF/pages/cip/report/cip_report_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="cipReportSave" class="com.tetrapak.action.cip.CIPReportQueryAction"
+			method="cipReportSave">
+			<result name="input" type="redirectAction">
+				<param name="actionName">cipReportQueryPage</param>
+				<param name="namespace">/cip</param>
+			</result>
+			<result name="excel" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="contentDisposition">attachment;filename="${saveFileName}.xls"</param>
+				<param name="inputName">excelStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+			<result name="pdf" type="stream">
+				<param name="contentType">application/pdf; charset=UTF-8</param>
+				<param name="contentDisposition">attachment; filename="${saveFileName}.pdf"</param>
+				<param name="inputName">pdfStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<!-- CIP Trend Query -->
+		<action name="cipTrendQuery" class="com.tetrapak.action.cip.CIPTrendQueryAction"
+			method="cipTrendQuery">
+			<result name="input">/WEB-INF/pages/cip/report/cip_trend_query_page.jsp
+			</result>
+			<result name="success">/WEB-INF/pages/cip/report/cip_trend_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="cipTrendSave" class="com.tetrapak.action.cip.CIPTrendQueryAction"
+			method="cipTrendSave">
+			<result name="input" type="redirectAction">
+				<param name="actionName">cipTrendPage</param>
+				<param name="namespace">/cip/cipTrend</param>
+			</result>
+			<result name="excel" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="contentDisposition">attachment;filename="${saveFileName}.xls"</param>
+				<param name="inputName">excelStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+			<result name="pdf" type="stream">
+				<param name="contentType">application/pdf; charset=UTF-8</param>
+				<param name="contentDisposition">attachment; filename="${saveFileName}.pdf"</param>
+				<param name="inputName">pdfStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<!-- CIP Report Perform Analysis -->
+		<action name="cipPerformAnalysisMasterLineQuery" class="com.tetrapak.action.cip.CIPPerformAnalysisAction"
+			method="cipPerformAnalysisMasterLineQuery">
+			<result name="input">/WEB-INF/pages/cip/report/cip_perform_analysis_masterline_query_page.jsp
+			</result>
+			<result name="success">/WEB-INF/pages/cip/report/cip_perform_analysis_masterline_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+		<action name="cipPerformAnalysisTargetQuery" class="com.tetrapak.action.cip.CIPPerformAnalysisAction"
+			method="cipPerformAnalysisTargetQuery">
+			<result name="input">/WEB-INF/pages/cip/report/cip_perform_analysis_target_query_page.jsp
+			</result>
+			<result name="success">/WEB-INF/pages/cip/report/cip_perform_analysis_target_query_page.jsp
+			</result>
+			<interceptor-ref name="operatorAuth"></interceptor-ref>
+		</action>
+
+	</package>
+</struts>

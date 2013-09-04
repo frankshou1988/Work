@@ -1,0 +1,11 @@
+i18n.pkg.error.bpu.machine.id.required=请选择一个单机设备
+i18n.pkg.error.alarm.tag.id.required=请选择单机运行数据
+i18n.pkg.error.query.start.date.required=请选择查询起始时间
+i18n.pkg.error.query.end.date.required=请选择查询结束时间
+i18n.pkg.error.query.interval.required=请选择查询时间间隔
+i18n.pkg.error.query.interval.unit.required=请选择查询时间间隔单位
+i18n.pkg.error.query.order.type.required=请选择查询结果排序方式
+i18n.pkg.error.save.file.type.required=请选择保存文件的格式
+i18n.pkg.error.save.file.name.required=请填写保存文件的名称
+i18n.pkg.error.query.page.number.required=请设置当前结果页
+i18n.pkg.error.filler.machine.name.required=请选择一个灌装机

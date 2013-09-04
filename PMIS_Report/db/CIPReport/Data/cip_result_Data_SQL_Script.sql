@@ -1,0 +1,14 @@
+SET IDENTITY_INSERT [cip_result] ON;
+INSERT INTO [cip_result] ([id],[cip_result_plc_id],[cip_result_desc],[plc_structure_type]) VALUES (1,20,'已冲洗','TPM4');
+INSERT INTO [cip_result] ([id],[cip_result_plc_id],[cip_result_desc],[plc_structure_type]) VALUES (2,50,'未完成','TPM4');
+INSERT INTO [cip_result] ([id],[cip_result_plc_id],[cip_result_desc],[plc_structure_type]) VALUES (3,60,'已干净','TPM4');
+INSERT INTO [cip_result] ([id],[cip_result_plc_id],[cip_result_desc],[plc_structure_type]) VALUES (4,61,'已消毒','TPM4');
+INSERT INTO [cip_result] ([id],[cip_result_plc_id],[cip_result_desc],[plc_structure_type]) VALUES (5,20,'已冲洗','TPM5');
+INSERT INTO [cip_result] ([id],[cip_result_plc_id],[cip_result_desc],[plc_structure_type]) VALUES (6,50,'未完成','TPM5');
+INSERT INTO [cip_result] ([id],[cip_result_plc_id],[cip_result_desc],[plc_structure_type]) VALUES (7,60,'已干净','TPM5');
+INSERT INTO [cip_result] ([id],[cip_result_plc_id],[cip_result_desc],[plc_structure_type]) VALUES (8,61,'已消毒','TPM5');
+INSERT INTO [cip_result] ([id],[cip_result_plc_id],[cip_result_desc],[plc_structure_type]) VALUES (9,45,'未完成','TPM6');
+INSERT INTO [cip_result] ([id],[cip_result_plc_id],[cip_result_desc],[plc_structure_type]) VALUES (10,58,'已冲洗','TPM6');
+INSERT INTO [cip_result] ([id],[cip_result_plc_id],[cip_result_desc],[plc_structure_type]) VALUES (11,60,'已干净','TPM6');
+INSERT INTO [cip_result] ([id],[cip_result_plc_id],[cip_result_desc],[plc_structure_type]) VALUES (12,62,'已消毒','TPM6');
+SET IDENTITY_INSERT [cip_result] OFF;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+  "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="cipTypePLCIdValue">
+		<field-validator type="required">
+			<message key="error.cip.type.plc.id.required" />
+		</field-validator>
+		<field-validator type="int">
+			<message key="error.cip.type.plc.id.required" />
+		</field-validator>
+	</field>
+	<field name="cipTypeDesc">
+		<field-validator type="requiredstring">
+			<message key="error.cip.type.desc.required" />
+		</field-validator>
+	</field>
+	<field name="plcStructureType">
+		<field-validator type="requiredstring">
+			<message key="error.cip.type.plc.structure.type.required" />
+		</field-validator>
+	</field>
+</validators>
